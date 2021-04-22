@@ -13,7 +13,7 @@ export default function RouteWrapper({
   const signed = false; // Isso quer dizer q toda vez que a aplicacao inicia o usuario ta deslogado
 
   if (!signed && isPrivate) {
-    return <Redirect to="/sessions" />;
+    return <Redirect to="/login" />;
   }
 
   if (signed && !isPrivate) {
