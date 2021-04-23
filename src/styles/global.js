@@ -1,9 +1,10 @@
-import { createGlobalStyle } from 'styled-components';
+/*import { createGlobalStyle } from 'styled-components';
 
 import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
 	@import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap&subset=latin-ext');
+	
 	* {
 		margin: 0;
 		padding: 0;
@@ -36,4 +37,4 @@ export default createGlobalStyle`
     opacity: 0.6;
     cursor: not-allowed;
   }
-`;
+`;*/
