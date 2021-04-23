@@ -4,6 +4,7 @@ import Route from './Route';
 
 import Login from '../pages/Login';
 import Tasks from '../pages/Tasks';
+import SignUp from '../pages/Signup'
 
 export default function Routes() {
   return (
@@ -11,6 +12,7 @@ export default function Routes() {
       <Switch>
         <Route path="/login" component={Login} />
         <Route path="/tasks" component={Tasks} isPrivate />
+        <Route path="/signup" component={SignUp} />
       </Switch>
     </BrowserRouter>
   );
