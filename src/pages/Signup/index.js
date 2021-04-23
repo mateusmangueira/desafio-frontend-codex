@@ -1,9 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { Form, Input } from '@rocketseat/unform';
+import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
+import { signUpRequest } from '../../store/modules/auth/actions';
 
-import sighUpImg from '../../signup2.svg';
+import sighUpImg from '../../assets/signup2.svg';
 
 import '../Login/styles.css';
 
+const schema = Yup.object().shape({
+  name: Yup.string().required('O nome é obrigatório'),
+  email: Yup.string().email('Insira um e-mail válido').required('O e-mail é obrigatório'),
+  password: Yup.string().min(8, 'No mínimo 8 caracteres').required('A senha é obrigatória'),
+});
+
+export default function SignUp() {
+  const dispatch = useDispatch();
+
+  function handleSignUp({ name, email, password }) {
+    dispatch(signUpRequest(name, email, password))
+  }
+  return (
+    <>
+      <img src={sighUpImg} alt="Task SignUp" />
+      <Form schema={schema} onSubmit={handleSignUp}>
+        <Input name="name" placeholder="Nome completo" />
+        <Input name="email" type="email" placeholder="Seu e-mail" />
+        <Input name="password" type="password" placeholder="Sua senha" />
+        <button type="submit">Criar conta</button>
+        <Link to="/">Já possui conta?</Link>
+      </Form>
+    </>
+  );
+}
+/*
 const SignUp = props => {
     const [enteredName, setEnteredName] = useState('');
     const [enteredEmail, setEnteredEmail] = useState('');
@@ -56,5 +87,6 @@ const SignUp = props => {
         </div>
     );
 }
-
 export default SignUp;
+*/
+

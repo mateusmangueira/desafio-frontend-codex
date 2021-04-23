@@ -3,16 +3,16 @@ import { BrowserRouter , Switch } from 'react-router-dom';
 import Route from './Route';
 
 import Login from '../pages/Login';
+import SignUp from '../pages/SignUp';
 import Tasks from '../pages/Tasks';
-import SignUp from '../pages/Signup'
 
 export default function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/login" component={Login} />
-        <Route path="/tasks" component={Tasks} isPrivate />
+        <Route path="/" exact component={Login} />
         <Route path="/signup" component={SignUp} />
+        <Route path="/tasks" component={Tasks} isPrivate />
       </Switch>
     </BrowserRouter>
   );
