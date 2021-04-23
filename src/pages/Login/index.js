@@ -31,18 +31,22 @@ const Login = props => {
           <div className="form">
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input type="email" name="email" placeholder="email" />
+              <input type="email" name="email" placeholder="email" value={enteredEmail} onChange={changeEmailHandle} />
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input type="password" name="password" placeholder="password" />
-              <a href="#">Criar nova conta</a>
+              <input type="password" name="password" placeholder="password" value={enteredPassword} onChange={changePasswordHandle} />
             </div>
           </div>
         </div>
         <div className="footer">
-          <button type="button" className="btn">
+          <button type="submit" className="btn" onClick={loginUser}>
             Login
+          </button>
+          <br />
+          <br />
+          <button type="button" className="btn">
+            Sign Up
           </button>
         </div>
       </div>
