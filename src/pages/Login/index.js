@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Form, Input } from '@rocketseat/unform';
+import { Form } from '@unform/web';
+import Input from '../../components/Input';
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { signInRequest } from '../../store/modules/auth/actions';
@@ -26,12 +27,12 @@ export default function Login() {
   return (
     <>
     <img class="image" src={loginImg} alt="Task Login" />
-      <Form class="form" schema={schema} onSubmit={handleLogin}>
+      <Form schema={schema} onSubmit={handleLogin}>
         <Input name="email" type="email" placeholder="Digite seu e-mail" />
         <Input name="password" type="password" placeholder="Digite sua senha"
         />
         <button type="submit">{loading ? 'Carregando...' : 'Entrar'}</button>
-        <Link to="/singup">Criar sua conta</Link>
+        <Link to="/signup">Criar sua conta</Link>
       </Form>
     </>
   )

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Form, Input } from '@rocketseat/unform';
+import { Form } from '@unform/web'
+import  Input  from '../../components/Input'
 import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 import { signUpRequest } from '../../store/modules/auth/actions';
@@ -23,8 +24,8 @@ export default function SignUp() {
   }
   return (
     <>
-      <img src={sighUpImg} alt="Task SignUp" />
-      <Form schema={schema} onSubmit={handleSignUp}>
+      <img class="image" src={sighUpImg} alt="Task SignUp" />
+      <Form schema={schema} onSubmit={handleSignUp} >
         <Input name="name" placeholder="Nome completo" />
         <Input name="email" type="email" placeholder="Seu e-mail" />
         <Input name="password" type="password" placeholder="Sua senha" />
