@@ -26,8 +26,11 @@ export default function SignUp() {
     <>
       <img class="image" src={sighUpImg} alt="Task SignUp" />
       <Form schema={schema} onSubmit={handleSignUp} >
+        <span>NOME</span>
         <Input name="name" placeholder="Nome completo" />
+        <span>E-MAIL</span>
         <Input name="email" type="email" placeholder="Seu e-mail" />
+        <span>SENHA</span>
         <Input name="password" type="password" placeholder="Sua senha" />
         <button type="submit">Criar conta</button>
         <Link to="/">Já possui conta?</Link>

@@ -28,7 +28,9 @@ export default function Login() {
     <>
     <img class="image" src={loginImg} alt="Task Login" />
       <Form schema={schema} onSubmit={handleLogin}>
+        <span>E-MAIL</span>
         <Input name="email" type="email" placeholder="Digite seu e-mail" />
+        <span>SENHA</span>
         <Input name="password" type="password" placeholder="Digite sua senha"
         />
         <button type="submit">{loading ? 'Carregando...' : 'Entrar'}</button>

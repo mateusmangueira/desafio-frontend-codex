@@ -10,9 +10,9 @@ export const Modal = ({ handleClose, show, children }) => {
   return (
     <Wrapper display={show ? 'block' : 'none'} onClick={handleClose}>
       <ModalMain onClick={handlePropagation}>
-        {/* <button type="button" className="close" onClick={handleClose}>
+        {<button type="button" className="close" onClick={handleClose}>
           Fechar
-        </button> */}
+        </button>}
         {children}
       </ModalMain>
     </Wrapper>
