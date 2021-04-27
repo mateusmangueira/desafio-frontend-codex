@@ -37,7 +37,7 @@ export function* signUp({ payload }) {
     });
 
     toast.success('Conta criada com sucesso.');
-    history.push('/tasks');
+    history.push('/');
 
   } catch (err) {
     toast.error('Falha no cadastro. Verifique os seus dados');

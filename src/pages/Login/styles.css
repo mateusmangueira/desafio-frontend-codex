@@ -77,6 +77,10 @@
     cursor: pointer;
 }
 
+.form link {
+    padding: 20px 10px;
+}
+
 .btn:hover {
     background-color: #3F3D56;
 }
