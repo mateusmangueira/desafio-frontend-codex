@@ -27,12 +27,12 @@ export default function Login() {
   return (
     <>
     <img class="image" src={loginImg} alt="Task Login" />
-      <Form class="link" schema={schema} onSubmit={handleLogin}>
-        <span>E-MAIL</span>
-        <Input name="email" type="email" placeholder="Digite seu e-mail" />
-        <span>SENHA</span>
-        <Input name="password" type="password" placeholder="Digite sua senha"/>
-        <button type="submit">{loading ? 'Carregando...' : 'Entrar'}</button>
+      <Form class="form" schema={schema} onSubmit={handleLogin}>
+        {/* <span>E-MAIL</span> */}
+        <Input name="email" type="email" placeholder="Email" />
+        {/* <span>SENHA</span> */}
+        <Input name="password" type="password" placeholder="Senha"/>
+        <button class="btn" type="submit">{loading ? 'Carregando...' : 'Entrar'}</button>
         <Link class="link" to="/signup">Criar sua conta</Link>
       </Form>
     </>

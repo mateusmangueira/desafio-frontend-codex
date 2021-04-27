@@ -67,6 +67,7 @@
 }
 
 .btn {
+    margin-top: 15px;
     font-size: 21px;
     padding: 5px 20px;
     border: 0;
@@ -77,8 +78,13 @@
     cursor: pointer;
 }
 
-.form link {
-    padding: 20px 10px;
+.link {
+    color: #3F3D56;
+    margin-top: 15px;
+}
+
+.link:hover {
+    color: #F50057;
 }
 
 .btn:hover {
@@ -87,5 +93,19 @@
 
 .btn:focus {
     outline: none;
+}
+
+.form input {
+    margin-top: 2px;
+    height: 34px;
+    width: 255px;
+    padding: 0px 20px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f3f3f3;
+    border: 0;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    transition: all 250ms ease-in-out;
 }
 
