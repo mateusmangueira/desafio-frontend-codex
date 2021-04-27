@@ -8,6 +8,7 @@ import { createTaskRequest } from '../../../store/modules/task/actions';
 import { Form } from '@unform/web';
 import Input from '../../../components/Input';
 import ButtonBack from '../../../components/ButtonBack';
+import ButtonSave from '../../../components/ButtonSave';
 
 import { Container } from './styles';
 
@@ -27,9 +28,10 @@ export default function Create() {
   return (
     <Container>
       <header>
-        <h1>Nova Tarefa</h1>
+        <h1>NOVA TAREFA</h1>
         <div>
           <ButtonBack type="button" />
+          <ButtonSave type="submit" form="task-form" />
         </div>
       </header>
 

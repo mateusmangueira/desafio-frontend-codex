@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
+import ButtonCreate from '../../components/ButtonCreate';
+import ButtonLogout from '../../components/ButtonLogout';
+
 import { Container, ListTasks} from './styles';
 
 import history from '../../services/history';
@@ -34,7 +37,8 @@ export default function Tasks() {
       <header>
         <h1>TAREFAS</h1>
         <div>
-        <button type="button" onClick={() => {history.push('/tasks/create')}}/>
+        <ButtonCreate type="button" onClick={() => {history.push('/tasks/create')}}/>
+        <ButtonLogout type="button"/>
         </div>
       </header>
       <ListTasks>
@@ -46,18 +50,10 @@ export default function Tasks() {
             </tr>
           </thead>
            <tbody>
-            {tasks.map(task => (
-              <tr>
-                <td>{task.name}</td>
-                <td>{task.priority}</td>
-                <td>
-                  <div>
-                  <Link to={{pathname: `/tasks/edit/${task._id}`, }}>editar</Link>
-                  <button type="button" onClick={() => handleDelete(task._id)}>apagar</button>
-                  </div>
-                </td>
-              </tr>
-            ))}
+
+
+
+
           </tbody>
         </table>
       </ListTasks>
