@@ -6,7 +6,7 @@ export default reducers => {
   const persistedReducer = persistReducer({
     key: 'taskscheduler',
     storage,
-    whitelist: ['auth'],
+    whitelist: ['auth', 'task'],
   },
     reducers
   );

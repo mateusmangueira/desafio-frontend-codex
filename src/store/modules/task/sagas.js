@@ -37,13 +37,13 @@ export function* getTasks() {
   try {
     const response = yield api.get('/tasks');
 
-    if (response) {
-      yield put(getTasksSuccess(response.data));
+    if (response.data.results > 0) {
+      yield put(getTasksSuccess(response.data.data.tasks));
+    } else {
+      toast.info("Você não possui Tarefas")
     }
   } catch (error) {
-    if (error.response.status === 400) {
-      toast.warn('Você não possui tarefas');
-    }
+    toast.error('Falha ao carregar suas Tarefas');
     yield put(getTasksFailed());
   }
 }
@@ -58,9 +58,10 @@ export function* updateTask({ payload }) {
     };
 
     const response = yield call(api.put, `/tasks/${_id}`, data);
-    toast.success('Tarefa atualizado com sucesso.');
+    console.log(response);
+    toast.success('Tarefa atualizada com sucesso.');
 
-    yield put(updateTaskSuccess(response.data));
+    yield put(updateTaskSuccess(response.data.data));
 
     history.push('/tasks');
   } catch (error) {

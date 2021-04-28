@@ -10,6 +10,8 @@ import Input from '../../../components/Input';
 import ButtonBack from '../../../components/ButtonBack';
 import ButtonSave from '../../../components/ButtonSave';
 
+import history from '../../../services/history';
+
 import { Container } from './styles';
 
 const schema = Yup.object().shape({
@@ -25,17 +27,19 @@ export default function Create() {
     dispatch(createTaskRequest(name, priority ));
   }
 
+
+
   return (
     <Container>
       <header>
         <h1>NOVA TAREFA</h1>
         <div>
           <ButtonBack type="button"/>
-          <ButtonSave type="submit" form="task-form" />
+          <ButtonSave onClick={() => history.push('/tasks')} type="submit" form="task-form" />
         </div>
       </header>
 
-      <Form schema={schema} onSubmit={handleCreate} id="task-form">
+      <Form class="form" schema={schema} onSubmit={handleCreate} id="task-form">
         <span>NOME DA TAREFA</span>
         <Input name="name" type="text" placeholder="Nome da Tarefa" />
         <span>PRIORIDADE</span>

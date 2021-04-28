@@ -15,6 +15,8 @@ import {
   deleteTaskRequest, getTasksRequest
 } from '../../store/modules/task/actions'
 
+import { signOut } from '../../store/modules/auth/actions'
+
 export default function Tasks() {
 
   const dispatch = useDispatch();
@@ -32,13 +34,17 @@ export default function Tasks() {
     }
   }
 
+  async function handleLogout() {
+    dispatch(signOut())
+  }
+
   return (
     <Container>
       <header>
         <h1>TAREFAS</h1>
         <div>
         <ButtonCreate type="button" onClick={() => {history.push('/tasks/create')}}/>
-        <ButtonLogout type="button"/>
+        <ButtonLogout type="button" onClick={() => {handleLogout()}}/>
         </div>
       </header>
       <ListTasks>
@@ -50,13 +56,35 @@ export default function Tasks() {
             </tr>
           </thead>
            <tbody>
-
-
-
-
+           {tasks.map(task => (
+               <tr key={task._id}>
+                 <td>
+                    {task.name}
+                 </td>
+                 <td>
+                   {task.priority}
+                 </td>
+                 <td>
+                   <div>
+                     <Link to={{pathname: `/tasks/edit/${tasks._id}`,}}>
+                       editar
+                     </Link>
+                     <button type="button" onClick={() => handleDelete(task._id)}>
+                       deletar
+                     </button>
+                   </div>
+                 </td>
+               </tr>
+             ))}
           </tbody>
         </table>
       </ListTasks>
     </Container>
   )
 }
+
+
+/*
+
+
+*/
