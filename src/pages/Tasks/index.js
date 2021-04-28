@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import ButtonCreate from '../../components/ButtonCreate';
 import ButtonLogout from '../../components/ButtonLogout';
 
+import {MdDelete, MdCreate} from 'react-icons/md';
+
 import { Container, ListTasks} from './styles';
 
 import history from '../../services/history';
@@ -35,11 +37,19 @@ export default function Tasks() {
   }
 
   async function handleLogout() {
+    const result = window.confirm('Tem certeza que deseja sair?');
+    if (result) {
     dispatch(signOut())
+    }
   }
 
   async function handleSortPriority() {
     dispatch(sortTasksRequest());
+  }
+
+  async function handleCreate() {
+    history.push('/tasks/create');
+    window.location.reload();
   }
 
   return (
@@ -47,7 +57,7 @@ export default function Tasks() {
       <header>
         <h1>TAREFAS</h1>
         <div>
-        <ButtonCreate type="button" onClick={() => {history.push('/tasks/create')}}/>
+        <ButtonCreate type="button" onClick={() => {handleCreate()}}/>
         <ButtonLogout type="button" onClick={() => {handleLogout()}}/>
         </div>
       </header>
@@ -71,11 +81,11 @@ export default function Tasks() {
                  </td>
                  <td>
                    <div>
-                     <Link to={{pathname: `/tasks/edit/${tasks._id}`,}}>
-                       editar
+                     <Link to={{pathname: `/tasks/edit/${task._id}`,}}>
+                     <MdCreate color="#3F3D56" size={20}  ></MdCreate>
                      </Link>
                      <button type="button" onClick={() => handleDelete(task._id)}>
-                       deletar
+                     <MdDelete color="#3F3D56" size={20} hover={"color=#fff"} ></MdDelete>
                      </button>
                    </div>
                  </td>
@@ -87,9 +97,3 @@ export default function Tasks() {
     </Container>
   )
 }
-
-
-/*
-
-
-*/

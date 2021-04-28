@@ -27,10 +27,12 @@ export function* createTask({ payload }) {
     yield put(createTaskSuccess(response.data));
 
     history.push('/tasks');
+
   } catch (error) {
     toast.error('Houve algum problema ao criar a Tarefa');
     yield put(createTaskFailure());
     history.push('/tasks');
+
   }
 }
 
@@ -59,12 +61,12 @@ export function* updateTask({ payload }) {
     };
 
     const response = yield call(api.put, `/tasks/${_id}`, data);
-    console.log(response);
     toast.success('Tarefa atualizada com sucesso.');
 
     yield put(updateTaskSuccess(response.data));
 
     history.push('/tasks');
+
   } catch (error) {
     toast.error('Houve algum erro ao atualizar tarefa');
     yield put(updateTaskFailure());
@@ -82,9 +84,10 @@ export function* deleteTask({ payload }) {
       toast.error('Houve algum problema ao deletar a tarefa');
     }
 
-    yield put(deleteTaskSuccess(response.data));
+    yield put(deleteTaskSuccess(response.data.data.task));
 
     history.push('/tasks');
+
   } catch (error) {
     yield put(deleteTaskFailure());
   }
@@ -93,8 +96,6 @@ export function* deleteTask({ payload }) {
 export function* sortTasks() {
 
     const response = yield call(api.get, '/tasks/sort');
-
-    console.log(response);
 
     if(!response) {
       toast.error('Houve erro na ordenação das tarefas');

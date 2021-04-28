@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
+
 import colors from '../../styles/colors';
 
 export const Button = styled.button`
@@ -16,7 +16,7 @@ export const Button = styled.button`
 	background: ${colors.primary};
 	transition: background 0.2s;
 	&:hover {
-		background: ${darken(0.12, colors.primary)};
+		background: #ff2975;
 	}
 	svg {
 		margin-right: 8px;
