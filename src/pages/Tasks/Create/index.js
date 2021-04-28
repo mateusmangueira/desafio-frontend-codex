@@ -38,9 +38,7 @@ export default function Create() {
       </header>
 
       <Form class="form" schema={schema} onSubmit={handleCreate} id="task-form">
-        <span>NOME DA TAREFA</span>
         <Input name="name" type="text" placeholder="Nome da Tarefa" />
-        <span>PRIORIDADE</span>
         <Input name="priority" type="text" placeholder="Alta ou Baixa" />
       </Form>
     </Container>
