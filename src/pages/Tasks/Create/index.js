@@ -33,13 +33,15 @@ export default function Create() {
         <h1>NOVA TAREFA</h1>
         <div>
           <ButtonBack type="button"/>
-          <ButtonSave type="submit" form="task-form" />
         </div>
       </header>
 
       <Form class="form" schema={schema} onSubmit={handleCreate} id="task-form">
-        <Input name="name" type="text" placeholder="Nome da Tarefa" />
+        <span>Nome da Tarefa</span>
+        <Input name="name" type="text" placeholder="Tarefa" />
+        <span>Prioridade</span>
         <Input name="priority" type="text" placeholder="Alta ou Baixa" />
+        <ButtonSave type="submit" form="task-form" />
       </Form>
     </Container>
   );

@@ -31,13 +31,13 @@ export default function Edit() {
         <h1>EDITAR TAREFA</h1>
         <div>
           <ButtonBack type="button"/>
-          <ButtonSave type="submit" form="task-form" />
         </div>
       </header>
 
       <Form class="form" schema={schema} onSubmit={handleCreate} id="task-form">
-        <Input name="name" type="text" placeholder="Nome da Tarefa" />
-        <Input name="priority" type="text" placeholder="Alta ou Baixa" />
+        <span>Novo Nome</span>
+        <Input name="name" type="text" placeholder="Nome" />
+        <ButtonSave type="submit" form="task-form" />
       </Form>
     </Container>
   )
