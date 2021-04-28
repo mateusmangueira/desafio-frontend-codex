@@ -15,7 +15,7 @@ export default function Routes() {
         <Route path="/signup" component={SignUp} />
         <Route path="/tasks" exact component={Tasks} isPrivate />
         <Route path='/tasks/create' component={TaskCreate} isPrivate />
-        <Route path='/tasks/edit/:id' component={TaskEdit} isPrivate />
+        <Route path='/tasks/edit/:_id' component={TaskEdit} isPrivate />
       </Switch>
   );
 }

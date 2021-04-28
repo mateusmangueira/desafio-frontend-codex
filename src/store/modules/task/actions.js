@@ -77,3 +77,22 @@ export function deleteTaskFailure() {
   };
 }
 
+export function sortTasksRequest() {
+  return {
+    type: '@task/SORT_TASKS_REQUEST',
+  }
+}
+
+export function sortTasksSuccess(sortedTasks) {
+  return {
+    type: '@task/SORT_TASKS_SUCCESS',
+    payload: { sortedTasks }
+  }
+}
+
+export function sortTasksFailure() {
+  return {
+    type: '@task/SORT_TASKS_FAILURE',
+  }
+}
+

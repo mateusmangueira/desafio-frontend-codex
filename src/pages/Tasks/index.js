@@ -12,7 +12,7 @@ import { Container, ListTasks} from './styles';
 import history from '../../services/history';
 
 import {
-  deleteTaskRequest, getTasksRequest
+  deleteTaskRequest, getTasksRequest, sortTasksRequest
 } from '../../store/modules/task/actions'
 
 import { signOut } from '../../store/modules/auth/actions'
@@ -38,6 +38,10 @@ export default function Tasks() {
     dispatch(signOut())
   }
 
+  async function handleSortPriority() {
+    dispatch(sortTasksRequest());
+  }
+
   return (
     <Container>
       <header>
@@ -53,6 +57,7 @@ export default function Tasks() {
             <tr>
               <th>NOME</th>
               <th>PRIORIDADE</th>
+              <button className="btn" type="button" onClick={() => {handleSortPriority()}} />
             </tr>
           </thead>
            <tbody>

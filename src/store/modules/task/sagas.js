@@ -12,7 +12,9 @@ import {
   updateTaskSuccess,
   updateTaskFailure,
   deleteTaskSuccess,
-  deleteTaskFailure
+  deleteTaskFailure,
+  sortTasksSuccess,
+  sortTasksFailure,
 
 } from './actions';
 
@@ -22,7 +24,6 @@ export function* createTask({ payload }) {
     const response = yield call(api.post, '/tasks', payload);
 
     toast.success('Tarefa criada com sucesso.');
-
     yield put(createTaskSuccess(response.data));
 
     history.push('/tasks');
@@ -61,11 +62,11 @@ export function* updateTask({ payload }) {
     console.log(response);
     toast.success('Tarefa atualizada com sucesso.');
 
-    yield put(updateTaskSuccess(response.data.data));
+    yield put(updateTaskSuccess(response.data));
 
     history.push('/tasks');
   } catch (error) {
-    toast.error('Houve algum erro ao atualizar aluno, verifique seus dados.');
+    toast.error('Houve algum erro ao atualizar tarefa');
     yield put(updateTaskFailure());
   }
 }
@@ -89,10 +90,25 @@ export function* deleteTask({ payload }) {
   }
 }
 
+export function* sortTasks() {
+
+    const response = yield call(api.get, '/tasks/sort');
+
+    console.log(response);
+
+    if(!response) {
+      toast.error('Houve erro na ordenação das tarefas');
+      yield put(sortTasksFailure());
+    }
+
+    yield put(sortTasksSuccess(response.data.tasks));
+}
+
 
 export default all([
   takeLatest('@task/CREATE_TASK_REQUEST', createTask),
   takeLatest('@task/GET_TASKS_REQUEST', getTasks),
   takeLatest('@task/UPDATE_TASK_REQUEST', updateTask),
   takeLatest('@task/DELETE_TASK_REQUEST', deleteTask),
+  takeLatest('@task/SORT_PRIORITY_REQUEST', sortTasks),
 ]);

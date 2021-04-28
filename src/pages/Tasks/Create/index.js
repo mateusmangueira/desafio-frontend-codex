@@ -10,8 +10,6 @@ import Input from '../../../components/Input';
 import ButtonBack from '../../../components/ButtonBack';
 import ButtonSave from '../../../components/ButtonSave';
 
-import history from '../../../services/history';
-
 import { Container } from './styles';
 
 const schema = Yup.object().shape({
@@ -35,7 +33,7 @@ export default function Create() {
         <h1>NOVA TAREFA</h1>
         <div>
           <ButtonBack type="button"/>
-          <ButtonSave onClick={() => history.push('/tasks')} type="submit" form="task-form" />
+          <ButtonSave type="submit" form="task-form" />
         </div>
       </header>
 
@@ -43,7 +41,7 @@ export default function Create() {
         <span>NOME DA TAREFA</span>
         <Input name="name" type="text" placeholder="Nome da Tarefa" />
         <span>PRIORIDADE</span>
-        <Input name="email" type="email" placeholder="Alta ou Baixa" />
+        <Input name="priority" type="text" placeholder="Alta ou Baixa" />
       </Form>
     </Container>
   );

@@ -3,6 +3,7 @@ import produce from 'immer';
 const INITIAL_STATE = {
   task: null,
   tasks: [],
+  sortedTasks: [],
 };
 
 export default function task(state = INITIAL_STATE, action) {
@@ -14,7 +15,7 @@ export default function task(state = INITIAL_STATE, action) {
       }
 
       case '@task/UPDATE_TASK_SUCCESS': {
-        draftState.task = action.payload.task;
+        draftState.task = action.payload.task._id;
         break;
       }
 
@@ -27,6 +28,11 @@ export default function task(state = INITIAL_STATE, action) {
         draftState.tasks = draftState.tasks.filter(item => {
           return item._id !== action.payload._id;
         });
+        break;
+      }
+
+      case '@task/SORT_TASKS_SUCCESS': {
+        draftState.sortedTasks = action.payload.tasks;
         break;
       }
       default:
