@@ -30,7 +30,7 @@ export default function Create() {
       <header>
         <h1>NOVA TAREFA</h1>
         <div>
-          <ButtonBack type="button" />
+          <ButtonBack type="button"/>
           <ButtonSave type="submit" form="task-form" />
         </div>
       </header>

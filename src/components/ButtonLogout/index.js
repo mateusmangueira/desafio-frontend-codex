@@ -7,7 +7,7 @@ export default function ButtonLogout({ ...props }) {
   return (
     <Button {...props}>
       <MdPowerSettingsNew color="#fff" size={20} />
-      sair
+      SAIR
     </Button>
   );
 }
