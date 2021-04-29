@@ -41,12 +41,13 @@ export default function Edit( { match }) {
         <h1>EDITAR TAREFA</h1>
         <div>
           <ButtonBack type="button"/>
-          <ButtonSave type="submit" form="task-form" />
         </div>
       </header>
 
-      <Form class="form" schema={schema} initialData={task} onSubmit={handleCreate} id="task-form">
-        <Input name="name" type="text" placeholder="Novo nome da Tarefa" />
+      <Form class="form" schema={schema} onSubmit={handleCreate} id="task-form">
+        <span>Novo Nome</span>
+        <Input name="name" type="text" placeholder="Nome" />
+        <ButtonSave type="submit" form="task-form" />
       </Form>
     </Container>
   )

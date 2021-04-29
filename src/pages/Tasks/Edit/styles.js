@@ -11,9 +11,24 @@ export const Container = styled.div`
     align-items: center;
     width: 900px;
     margin-bottom: 24px;
+    h1 {
+      color: #555274
+    }
     div {
       display: flex;
       align-items: center;
     }
+  }
+
+  span {
+    height: 25px;
+    width: 255px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    color: #555274
+  }
+
+  Input {
+    background-color: #fff;
   }
 `;

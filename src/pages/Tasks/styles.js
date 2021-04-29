@@ -7,6 +7,9 @@ export const Container = styled.div`
   align-items: center;
   padding: 34px 120px;
   header {
+    h1 {
+      color: #555274;
+    }
     display: flex;
     align-items: center;
     width: 1200px;
@@ -27,9 +30,13 @@ export const ListTasks = styled.div`
     width: 1200px;
     background: #fff;
     padding: 30px 30px 0px 30px;
+    button {
+      align-items: top;
+    }
     th {
       text-align: left;
       padding-bottom: 20px;
+      color: #555274;
     }
     tbody tr {
       & + tr {
