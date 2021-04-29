@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import ButtonCreate from '../../components/ButtonCreate';
 import ButtonLogout from '../../components/ButtonLogout';
+import SortButton from '../../components/SortButton';
 
 import {MdDelete, MdCreate} from 'react-icons/md';
 
@@ -14,7 +15,7 @@ import { Container, ListTasks} from './styles';
 import history from '../../services/history';
 
 import {
-  deleteTaskRequest, getTasksRequest, sortTasksRequest
+  deleteTaskRequest, getTasksRequest, sortTasks
 } from '../../store/modules/task/actions'
 
 import { signOut } from '../../store/modules/auth/actions'
@@ -43,8 +44,8 @@ export default function Tasks() {
     }
   }
 
-  async function handleSortPriority() {
-    dispatch(sortTasksRequest());
+  async function handleSortPriority(tasks) {
+      dispatch(sortTasks(tasks))
   }
 
   async function handleCreate() {
@@ -66,8 +67,7 @@ export default function Tasks() {
           <thead>
             <tr>
               <th>NOME</th>
-              <th>PRIORIDADE</th>
-              <button className="btn" type="button" onClick={() => {handleSortPriority()}} />
+              <SortButton type="button" onClick={() => handleSortPriority(tasks)} />
             </tr>
           </thead>
            <tbody>
