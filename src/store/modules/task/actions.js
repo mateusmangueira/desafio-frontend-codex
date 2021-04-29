@@ -37,10 +37,10 @@ export function createTaskFailure() {
   };
 }
 
-export function updateTaskRequest(name, priority, _id) {
+export function updateTaskRequest(name, _id) {
   return {
     type: '@task/UPDATE_TASK_REQUEST',
-    payload: { name, priority, _id },
+    payload: { name, _id },
   };
 }
 
@@ -77,22 +77,10 @@ export function deleteTaskFailure() {
   };
 }
 
-export function sortTasksRequest() {
-  return {
-    type: '@task/SORT_TASKS_REQUEST',
-  }
-}
 
-export function sortTasksSuccess(sortedTasks) {
+export function sortTasks(sortedTasks) {
   return {
-    type: '@task/SORT_TASKS_SUCCESS',
+    type: '@task/SORT_TASKS',
     payload: { sortedTasks }
   }
 }
-
-export function sortTasksFailure() {
-  return {
-    type: '@task/SORT_TASKS_FAILURE',
-  }
-}
-

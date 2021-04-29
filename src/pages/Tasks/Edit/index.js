@@ -1,8 +1,9 @@
 import React from 'react';
 
 import * as Yup from 'yup';
+import PropTypes from 'prop-types';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { updateTaskRequest } from '../../../store/modules/task/actions';
 
 import { Form } from '@unform/web';
@@ -17,13 +18,22 @@ const schema = Yup.object().shape({
   priority: Yup.string(),
 });
 
-export default function Edit() {
+export default function Edit( { match }) {
 
   const dispatch = useDispatch();
 
-  function handleCreate({ name, priority }) {
-    dispatch(updateTaskRequest(name, priority ));
+  const { _id } = match.params;
+
+  function handleCreate({ name }) {
+    dispatch(updateTaskRequest(name, _id));
   }
+
+  const task = useSelector(state => {
+    return state.task.tasks.find(item => {
+      return item._id.toString() === _id;
+    });
+  }) 
+
 
   return (
     <Container>
@@ -42,3 +52,11 @@ export default function Edit() {
     </Container>
   )
 }
+
+Edit.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      _id: PropTypes.string,
+    }),
+  }).isRequired,
+};
