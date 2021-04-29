@@ -3,7 +3,7 @@ import React from 'react';
 import * as Yup from 'yup';
 import PropTypes from 'prop-types';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { updateTaskRequest } from '../../../store/modules/task/actions';
 
 import { Form } from '@unform/web';
@@ -28,11 +28,6 @@ export default function Edit( { match }) {
     dispatch(updateTaskRequest(name, _id));
   }
 
-  const task = useSelector(state => {
-    return state.task.tasks.find(item => {
-      return item._id.toString() === _id;
-    });
-  }) 
 
 
   return (
