@@ -18,7 +18,6 @@ export function* signIn({ payload }) {
     yield put(signInSuccess(token, user));
 
     history.push('/tasks');
-    // window.location.reload(); -- isso serve para dar um reload forcado na pagina, como se fosse f5. mas ai buga as mensagens com o Toastify
   } catch (err) {
     toast.error('E-mail ou Senha incorretos.');
     yield put(signFailure());
@@ -56,6 +55,7 @@ export function setToken({ payload }) {
 
 export function signOut() {
   history.push('/');
+  toast.info('Deslogado com sucesso!');
 }
 
 export default all([
